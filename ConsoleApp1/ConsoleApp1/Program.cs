@@ -10,26 +10,22 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            //берем одну точку и символ
-            int x1 = 1;//задаем начальные координаты
-            int y1 = 3;
-            char sym1 = '*';//задаем символ вывода
-            Draw(x1, y1, sym1);
+            Point p1 = new Point();
+            p1.x = 1;
+            p1.y = 3;
+            p1.sym = '*';
+            p1.Draw();
 
-            //берем вторую точку и символ
-            int x2 = 4;
-            int y2 = 5;
-            char sym2 = '#';
+            Point p2 = new Point();
+            p2.x = 4;
+            p2.y = 6;
+            p2.sym = '#';
+            p2.Draw();
 
-            Draw(x2, y2, sym2);
             Console.ReadLine();//ожидает нажатие кнопки
 
         }
         //для того чтобы код вывода точки не повторять, завдем функцию для этого действия 
-        static void Draw(int x, int y, char sym)
-        {
-            Console.SetCursorPosition(x, y); //выводим начало координат
-            Console.Write(sym);//выводим символ
-        }
+
     }
 }
