@@ -12,6 +12,13 @@ namespace ConsoleApp1
         public int y;
         public char sym;//задаем символ вывода
 
+        public Point(int xn, int yn, char symn)//точки с данными координатами
+        {
+            x = xn;
+            y = yn;
+            sym = symn;
+        }
+
         public void Draw()
         {
             Console.SetCursorPosition(x, y); //выводим начало координат
