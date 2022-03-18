@@ -12,11 +12,11 @@ namespace ConsoleApp1
         public int y;
         public char sym;//задаем символ вывода
 
-        public Point(int xn, int yn, char symn)//точки с данными координатами
+        public Point(int _x, int _y, char _sym)//точки с данными координатами
         {
-            x = xn;
-            y = yn;
-            sym = symn;
+            x = _x;
+            y = _y;
+            sym = _sym;
         }
 
         public void Draw()
