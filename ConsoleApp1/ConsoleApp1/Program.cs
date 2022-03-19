@@ -10,7 +10,7 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-        //    Console.SetBufferSize(80, 25);//устанавливается размер окна и перемотки
+            Console.SetBufferSize(120, 30);//устанавливается размер окна и перемотки
 
             //рисуем линии отрисовка рамочки, включаем написанный класс
             HorizontalLine upLine = new HorizontalLine(0, 78, 0, '+');

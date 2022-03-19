@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace ConsoleApp1
 {
    
-    class HorizontalLine //класс горизонтальных линий
+    class HorizontalLine : Figure //класс горизонтальных линий //наследование от класса фигура
     {
-        List<Point> pList;
+
         private int у;
 
         //конструктор для рисования любых произвольных линий
@@ -21,14 +21,6 @@ namespace ConsoleApp1
             {
                 Point p = new Point( x, у, sym );//добавляем точки с нужными координатами
                 pList.Add(p);//добавляем список точек
-            }
-        }
-        //метод вывода на экран
-        public void Draw()
-        {
-            foreach(Point p in pList)
-            {
-                p.Draw();
             }
         }
 
