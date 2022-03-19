@@ -10,20 +10,21 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+        //    Console.SetBufferSize(80, 25);//устанавливается размер окна и перемотки
 
-            //Используя констуктор Point, прописанный в файле Point.cs он берет конструкцию оттуда
-            Point p1 = new Point(1, 3, '*');
-            p1.Draw();
+            //рисуем линии отрисовка рамочки, включаем написанный класс
+            HorizontalLine upLine = new HorizontalLine(0, 78, 0, '+');
+            HorizontalLine downLine = new HorizontalLine(0, 78, 24, '+');
+            VerticalLine leftLine = new VerticalLine(0, 24, 0, '+');
+            VerticalLine rightLine = new VerticalLine(0, 24, 78, '+');
+            upLine.Draw();
+            downLine.Draw();
+            leftLine.Draw();
+            rightLine.Draw();
 
-            Point p2 = new Point(2, 6, '#');
-            p2.Draw();
-
-            //рисуем линии включаем написанный класс
-            HorizontalLines line = new HorizontalLines(5, 10, 8, '+');
-            line.Draw();
-
-            VerticalLine vline = new VerticalLine(5, 10, 8, '+');
-            vline.Draw();
+            //отрисовка точек
+            Point p = new Point(4,5,'*');
+            p.Draw();
 
             Console.ReadLine();//ожидает нажатие кнопки
 

@@ -11,12 +11,12 @@ namespace ConsoleApp1
 
         List<Point> pList;
 
-        public VerticalLine(int x, int ytop, int ybott, char s)
+        public VerticalLine(int yUp, int yDown, int x, char sym)//yUp - координата верхней точки по оси Y, yDown - координата нижней точки по оси Y, x - координата точки по оси X, sym - символ
         {
             pList = new List<Point>();
-            for (int i = ytop; i <= ybott; i++)
+            for (int y = yUp; y <= yDown; y++)
             {
-                Point p = new Point(x, i, s);
+                Point p = new Point(x, y, sym);
                 pList.Add(p);
             }
         }
