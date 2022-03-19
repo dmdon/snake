@@ -10,9 +10,26 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello WWWWWWooorrrllllddd");
+        //    Console.SetBufferSize(80, 25);//устанавливается размер окна и перемотки
+
+            //рисуем линии отрисовка рамочки, включаем написанный класс
+            HorizontalLine upLine = new HorizontalLine(0, 78, 0, '+');
+            HorizontalLine downLine = new HorizontalLine(0, 78, 24, '+');
+            VerticalLine leftLine = new VerticalLine(0, 24, 0, '+');
+            VerticalLine rightLine = new VerticalLine(0, 24, 78, '+');
+            upLine.Draw();
+            downLine.Draw();
+            leftLine.Draw();
+            rightLine.Draw();
+
+            //отрисовка точек
+            Point p = new Point(4,5,'*');
+            p.Draw();
+
             Console.ReadLine();//ожидает нажатие кнопки
 
         }
+        //для того чтобы код вывода точки не повторять, заведем функцию для этого действия 
+
     }
 }
