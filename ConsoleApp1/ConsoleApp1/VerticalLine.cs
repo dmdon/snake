@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace Snake
 {
-    class VerticalLine : Figure //наследование от класса фигура
+    class VerticalLine : Figure
     {
-
-        public VerticalLine(int yUp, int yDown, int x, char sym)//yUp - координата верхней точки по оси Y, yDown - координата нижней точки по оси Y, x - координата точки по оси X, sym - символ
+        public VerticalLine(int yUp, int yDown, int x, char sym)
         {
             pList = new List<Point>();
             for (int y = yUp; y <= yDown; y++)
@@ -18,6 +17,5 @@ namespace ConsoleApp1
                 pList.Add(p);
             }
         }
-
     }
 }

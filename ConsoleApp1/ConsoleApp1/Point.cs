@@ -4,25 +4,72 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace Snake
 {
     class Point
     {
-        public int x;//задаем начальные координаты
+        public int x;
         public int y;
-        public char sym;//задаем символ вывода
+        public char sym;
 
-        public Point(int _x, int _y, char _sym)//точки с данными координатами
+        public Point()
         {
-            x = _x;
-            y = _y;
-            sym = _sym;
+        }
+
+        public Point(int x, int y, char sym)
+        {
+            this.x = x;
+            this.y = y;
+            this.sym = sym;
+        }
+
+        public Point(Point p)
+        {
+            x = p.x;
+            y = p.y;
+            sym = p.sym;
+        }
+
+        public void Move(int offset, Direction direction)
+        {
+            if (direction == Direction.RIGHT)
+            {
+                x = x + offset;
+            }
+            else if (direction == Direction.LEFT)
+            {
+                x = x - offset;
+            }
+            else if (direction == Direction.UP)
+            {
+                y = y - offset;
+            }
+            else if (direction == Direction.DOWN)
+            {
+                y = y + offset;
+            }
+        }
+
+        public bool IsHit(Point p)
+        {
+            return p.x == this.x && p.y == this.y;
         }
 
         public void Draw()
         {
-            Console.SetCursorPosition(x, y); //выводим начало координат
-            Console.Write(sym);//выводим символ
+            Console.SetCursorPosition(x, y);
+            Console.Write(sym);
+        }
+
+        public void Clear()
+        {
+            sym = ' ';
+            Draw();
+        }
+
+        public override string ToString()
+        {
+            return x + ", " + y + ", " + sym;
         }
     }
 }

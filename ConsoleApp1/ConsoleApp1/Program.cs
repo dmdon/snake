@@ -4,32 +4,72 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace Snake
 {
-    class Program
+    class Point
     {
-        static void Main(string[] args)
+        public int x;
+        public int y;
+        public char sym;
+
+        public Point()
         {
-            Console.SetBufferSize(120, 30);//устанавливается размер окна и перемотки
-
-            //рисуем линии отрисовка рамочки, включаем написанный класс
-            HorizontalLine upLine = new HorizontalLine(0, 78, 0, '+');
-            HorizontalLine downLine = new HorizontalLine(0, 78, 24, '+');
-            VerticalLine leftLine = new VerticalLine(0, 24, 0, '+');
-            VerticalLine rightLine = new VerticalLine(0, 24, 78, '+');
-            upLine.Draw();
-            downLine.Draw();
-            leftLine.Draw();
-            rightLine.Draw();
-
-            //отрисовка точек
-            Point p = new Point(4,5,'*');
-            p.Draw();
-
-            Console.ReadLine();//ожидает нажатие кнопки
-
         }
-        //для того чтобы код вывода точки не повторять, заведем функцию для этого действия 
 
+        public Point(int x, int y, char sym)
+        {
+            this.x = x;
+            this.y = y;
+            this.sym = sym;
+        }
+
+        public Point(Point p)
+        {
+            x = p.x;
+            y = p.y;
+            sym = p.sym;
+        }
+
+        public void Move(int offset, Direction direction)
+        {
+            if (direction == Direction.RIGHT)
+            {
+                x = x + offset;
+            }
+            else if (direction == Direction.LEFT)
+            {
+                x = x - offset;
+            }
+            else if (direction == Direction.UP)
+            {
+                y = y - offset;
+            }
+            else if (direction == Direction.DOWN)
+            {
+                y = y + offset;
+            }
+        }
+
+        public bool IsHit(Point p)
+        {
+            return p.x == this.x && p.y == this.y;
+        }
+
+        public void Draw()
+        {
+            Console.SetCursorPosition(x, y);
+            Console.Write(sym);
+        }
+
+        public void Clear()
+        {
+            sym = ' ';
+            Draw();
+        }
+
+        public override string ToString()
+        {
+            return x + ", " + y + ", " + sym;
+        }
     }
 }
